@@ -39,7 +39,23 @@
 
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+function isPrime(num) {
+  if (num <= 1) return false; // 0 and 1 are not prime
+  if (num === 2) return true; // 2 is prime
+  if (num % 2 === 0) return false; // eliminate even numbers
+
+  // Only check up to the square root of num
+  for (let i = 3; i <= Math.sqrt(num); i += 2) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+// Example usage:
+console.log(isPrime(2));   // true
+console.log(isPrime(15));  // false
+console.log(isPrime(17));  // true
+
 // =============================================================================
 
 
