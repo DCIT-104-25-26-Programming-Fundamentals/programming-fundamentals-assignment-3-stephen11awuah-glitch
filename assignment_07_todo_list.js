@@ -78,7 +78,54 @@
 //
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+class TodoList {
+  constructor() {
+    this.tasks = [];
+  }
+
+  // Add a new task
+  addTask(task) {
+    if (!task || typeof task !== "string") {
+      return "Invalid task";
+    }
+    this.tasks.push({ text: task, completed: false });
+    return `Task "${task}" added.`;
+  }
+
+  // Mark a task as completed
+  completeTask(index) {
+    if (index < 0 || index >= this.tasks.length) {
+      return "Invalid task index";
+    }
+    this.tasks[index].completed = true;
+    return `Task "${this.tasks[index].text}" marked as completed.`;
+  }
+
+  // Remove a task
+  removeTask(index) {
+    if (index < 0 || index >= this.tasks.length) {
+      return "Invalid task index";
+    }
+    let removed = this.tasks.splice(index, 1);
+    return `Task "${removed[0].text}" removed.`;
+  }
+
+  // Display all tasks
+  showTasks() {
+    if (this.tasks.length === 0) {
+      return "No tasks available.";
+    }
+    return this.tasks
+      .map(
+        (task, i) =>
+          `${i + 1}. ${task.text} - ${task.completed ? "✅ Done" : "❌ Pending"}`
+      )
+      .join("\n");
+  }
+}
+
+
+
 // =============================================================================
 
 
