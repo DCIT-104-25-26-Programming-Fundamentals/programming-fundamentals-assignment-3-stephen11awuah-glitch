@@ -71,7 +71,33 @@
 
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+class Calculator {
+  // Addition
+  add(a, b) {
+    return a + b;
+  }
+
+  // Subtraction
+  subtract(a, b) {
+    return a - b;
+  }
+
+  // Multiplication
+  multiply(a, b) {
+    return a * b;
+  }
+
+  // Division
+  divide(a, b) {
+    if (b === 0) {
+      return "Error: Division by zero";
+    }
+    return a / b;
+  }
+}
+
+
+
 // =============================================================================
 
 
