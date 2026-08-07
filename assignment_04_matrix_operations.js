@@ -65,7 +65,61 @@
 //
 
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Matrix Addition
+function addMatrices(A, B) {
+  if (A.length !== B.length || A[0].length !== B[0].length) {
+    return "Matrices must have the same dimensions";
+  }
+  return A.map((row, i) =>
+    row.map((val, j) => val + B[i][j])
+  );
+}
+
+// Matrix Subtraction
+function subtractMatrices(A, B) {
+  if (A.length !== B.length || A[0].length !== B[0].length) {
+    return "Matrices must have the same dimensions";
+  }
+  return A.map((row, i) =>
+    row.map((val, j) => val - B[i][j])
+  );
+}
+
+// Matrix Multiplication
+function multiplyMatrices(A, B) {
+  if (A[0].length !== B.length) {
+    return "Number of columns in A must equal number of rows in B";
+  }
+  let result = Array.from({ length: A.length }, () =>
+    Array(B[0].length).fill(0)
+  );
+
+  for (let i = 0; i < A.length; i++) {
+    for (let j = 0; j < B[0].length; j++) {
+      for (let k = 0; k < B.length; k++) {
+        result[i][j] += A[i][k] * B[k][j];
+      }
+    }
+  }
+  return result;
+}
+
+// Matrix Transpose
+function transposeMatrix(A) {
+  return A[0].map((_, i) => A.map(row => row[i]));
+}
+
+// Example usage:
+let A = [
+  [1, 2],
+  [3, 4]
+];
+let B = [
+  [5, 6],
+  [7, 8]
+];
+
+
 // =============================================================================
 
 const readlineSync = require('readline-sync');
