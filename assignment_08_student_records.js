@@ -81,7 +81,55 @@
 //
 
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+class StudentRecords {
+  constructor() {
+    this.records = [];
+  }
+
+  // Add a new student
+  addStudent(id, name, score) {
+    if (!id || !name || score < 0 || score > 100) {
+      return "Invalid student data";
+    }
+    this.records.push({ id, name, score });
+    return `Student ${name} added successfully.`;
+  }
+
+  // Update a student's score
+  updateScore(id, newScore) {
+    let student = this.records.find(s => s.id === id);
+    if (!student) return "Student not found";
+    if (newScore < 0 || newScore > 100) return "Invalid score";
+    student.score = newScore;
+    return `Score updated for ${student.name}.`;
+  }
+
+  // Remove a student
+  removeStudent(id) {
+    let index = this.records.findIndex(s => s.id === id);
+    if (index === -1) return "Student not found";
+    let removed = this.records.splice(index, 1);
+    return `Student ${removed[0].name} removed.`;
+  }
+
+  // Display all student records
+  showRecords() {
+    if (this.records.length === 0) return "No student records available.";
+    return this.records
+      .map(s => `${s.id} - ${s.name} : ${s.score}`)
+      .join("\n");
+  }
+
+  // Calculate average score
+  averageScore() {
+    if (this.records.length === 0) return "No records to calculate average.";
+    let sum = this.records.reduce((acc, s) => acc + s.score, 0);
+    return sum / this.records.length;
+  }
+}
+
+
+
 // =============================================================================
 
 
