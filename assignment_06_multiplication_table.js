@@ -56,7 +56,21 @@
 
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// Multiplication table for a single number
+function multiplicationTable(num, limit = 10) {
+  if (num <= 0 || limit <= 0) {
+    return "Invalid input: numbers must be positive.";
+  }
+
+  let table = [];
+  for (let i = 1; i <= limit; i++) {
+    table.push(`${num} x ${i} = ${num * i}`);
+  }
+  return table;
+}
+
+
+
 // =============================================================================
 
 
