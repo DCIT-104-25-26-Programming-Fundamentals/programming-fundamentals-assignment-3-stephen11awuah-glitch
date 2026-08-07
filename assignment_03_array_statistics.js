@@ -40,7 +40,25 @@
 //   print an error message and stop.
 //
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+function arrayStatistics(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return "Invalid input: please provide a non-empty array of numbers.";
+  }
+
+  let sum = arr.reduce((acc, val) => acc + val, 0);
+  let average = sum / arr.length;
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+
+  return {
+    sum: sum,
+    average: average,
+    min: min,
+    max: max
+  };
+}
+
+
 // =============================================================================
 
 
